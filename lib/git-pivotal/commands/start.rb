@@ -1,16 +1,16 @@
-require 'commands/map'
-require 'commands/bug'
-require 'commands/card'
-require 'commands/chore'
-require 'commands/feature'
+require 'git-pivotal/commands/map'
+require 'git-pivotal/commands/bug'
+require 'git-pivotal/commands/card'
+require 'git-pivotal/commands/chore'
+require 'git-pivotal/commands/feature'
 
-module Commands
+module GitPivotal::Commands
   class Start
     COMMAND_MAP = Map.new.merge({
-      "bug"     => Commands::Bug,
-      "chore"   => Commands::Chore,
-      "feature" => Commands::Feature,
-      /^\d+$/   => Commands::Card
+      "bug"     => Bug,
+      "chore"   => Chore,
+      "feature" => Feature,
+      /^\d+$/   => Card
     })
     
     class << self

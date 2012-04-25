@@ -2,6 +2,6 @@
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-require 'commands/info'
+require 'git-pivotal/commands/info'
 
-exit Commands::Info.new(*ARGV).with(STDIN, STDOUT).run!
+exit GitPivotal::Commands::Info.new(*ARGV).with(STDIN, STDOUT).run!

@@ -1,6 +1,6 @@
-require 'commands/base'
+require 'git-pivotal/commands/base'
 
-module Commands
+module GitPivotal::Commands
   class Block < Base
     Label = "blocked"
     MessagePrefix = "Blocked:"

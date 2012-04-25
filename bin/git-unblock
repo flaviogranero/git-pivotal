@@ -2,6 +2,6 @@
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-require 'commands/unblock'
+require 'git-pivotal/commands/unblock'
 
-exit Commands::Unblock.new(*ARGV).with(STDIN, STDOUT).run!
+exit GitPivotal::Commands::Unblock.new(*ARGV).with(STDIN, STDOUT).run!

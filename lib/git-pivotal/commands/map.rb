@@ -1,4 +1,4 @@
-module Commands
+module GitPivotal::Commands
   class Map < Hash
     def [](arg)
       super || (

@@ -1,7 +1,7 @@
-require 'commands/base'
-require 'commands/block'
+require 'git-pivotal/commands/base'
+require 'git-pivotal/commands/block'
 
-module Commands
+module GitPivotal::Commands
   class Unblock < Base
     PlaceholderLabel = "."
     

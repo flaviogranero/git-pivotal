@@ -2,7 +2,7 @@
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-require 'commands/start'
+require 'git-pivotal/commands/start'
 
 args = ARGV
-exit Commands::Start.for(*ARGV).with(STDIN, STDOUT).run!
+exit GitPivotal::Commands::Start.for(*ARGV).with(STDIN, STDOUT).run!

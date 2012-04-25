@@ -2,6 +2,6 @@
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-require 'commands/accept'
+require 'git-pivotal/commands/accept'
 
-exit Commands::Accept.new(*ARGV).with(STDIN, STDOUT).run!
+exit GitPivotal::Commands::Accept.new(*ARGV).with(STDIN, STDOUT).run!

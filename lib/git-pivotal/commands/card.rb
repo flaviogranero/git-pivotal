@@ -1,6 +1,6 @@
-require 'commands/pick'
+require 'git-pivotal/commands/pick'
 
-module Commands
+module GitPivotal::Commands
   class Card < Pick
     attr_accessor :story_id
 

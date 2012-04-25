@@ -1,6 +1,6 @@
-require 'commands/base'
+require 'git-pivotal/commands/base'
 
-module Commands
+module GitPivotal::Commands
   class Info < Base
     def initialize(*args)
       @story_id = args.shift if args.first =~ /^(\d+)$/

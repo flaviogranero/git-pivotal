@@ -1,6 +1,6 @@
-require 'commands/base'
+require 'git-pivotal/commands/base'
 
-module Commands
+module GitPivotal::Commands
   class Finish < Base
 
     def run!
