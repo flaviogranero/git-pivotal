@@ -5,6 +5,7 @@ Transform /PIVOTAL|CURRENT/ do |placeholder|
   placeholder.
     gsub("PIVOTAL_API_KEY", ENV['PIVOTAL_API_KEY']).
     gsub("PIVOTAL_TEST_PROJECT", ENV['PIVOTAL_TEST_PROJECT']).
+    gsub("PIVOTAL_USERNAME", ENV['PIVOTAL_USER'].split.join.downcase).
     gsub("PIVOTAL_USER", ENV['PIVOTAL_USER']).
     gsub("CURRENT_CARD", current_card.id.to_s)
 end

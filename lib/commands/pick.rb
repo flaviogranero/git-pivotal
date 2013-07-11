@@ -66,10 +66,14 @@ module Commands
       end
       @story
     end
-
+    
     def get_branch_name
       branch_name = ""
-      suggested_branch_name = "#{story.id}-#{story.name.downcase.gsub(/\s+/, "-")}"
+      suggested_branch_name = [
+        options[:username].split.join,
+        story.id,
+        story.name
+      ].join(".").downcase.gsub(/\s+/, "_")
 
       unless options[:quiet] || options[:defaults]
         put "Enter branch name [#{suggested_branch_name}]: ", false

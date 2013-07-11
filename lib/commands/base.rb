@@ -85,6 +85,7 @@ module Commands
     def parse_gitconfig
       token              = get("git config --get pivotal.api-token").strip
       name               = get("git config --get pivotal.full-name").strip
+      username           = get("git config --get pivotal.username").strip
       id                 = get("git config --get pivotal.project-id").strip
       remote             = get("git config --get pivotal.remote").strip
       use_ssl            = get("git config --get pivotal.use-ssl").strip
@@ -93,6 +94,7 @@ module Commands
       options[:api_token]          = token              unless token == ""
       options[:project_id]         = id                 unless id == ""
       options[:full_name]          = name               unless name == ""
+      options[:username]           = username == "" ? name : username
       options[:remote]             = remote             unless remote == ""
       options[:use_ssl] = (/^true$/i.match(use_ssl))
       options[:verbose] = verbose == "" ? true : (/^true$/i.match(verbose))
@@ -103,7 +105,10 @@ module Commands
         opts.banner = "Usage: git pick [options]"
         opts.on("-k", "--api-key=", "Pivotal Tracker API key") { |k| options[:api_token] = k }
         opts.on("-p", "--project-id=", "Pivotal Tracker project id") { |p| options[:project_id] = p }
-        opts.on("-n", "--full-name=", "Pivotal Tracker full name") { |n| options[:full_name] = n }
+        opts.on("-n", "--full-name=", "Pivotal Tracker full name") do |n|
+          options[:full_name] = n
+          options[:username] = n.split.join.downcase
+        end
         opts.on("-S", "--use-ssl", "Use SSL for connection to Pivotal Tracker (for private repos(?))") { |s| options[:use_ssl] = s }
         opts.on("-D", "--defaults", "Accept default options. No-interaction mode") { |d| options[:defaults] = d }
         opts.on("-q", "--quiet", "Quiet, no-interaction mode") { |q| options[:quiet] = q }
